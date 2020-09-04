@@ -1,0 +1,72 @@
+###########################################################
+#                          AUTH.SETUP
+#
+# This script was written by Gunther Birznieks.
+# Date Created: 4-18-96
+#
+#   You may copy this under the terms of the GNU General Public
+#   License or the Artistic License which is distributed with
+#   copies of Perl v5.x for UNIX.
+#
+# Purpose:
+#   Set up global variables for running the Authentication
+# 
+# Special Notes:
+#   This script uses the authentication library and also
+#   sets up variables for the auth library.  The
+#   authentication variables are described as part of the
+#   comments for that library.
+#
+# THIS IS ONLY A **SAMPLE** FILE.  It is only used to show
+# you what a sample set up looks like.  The parameters
+# are explained in the header comments of the auth-lib.pl
+# file. 
+#
+# Most of these parameters would be incorporated into 
+# another CGI scripts setup file.   eg the BBS uses 
+# auth-lib.pl so it sets authentication variables in its
+# setup file.
+# 
+############################################################
+ 
+#
+# Authorization Library Variables
+#
+# THIS IS ONLY A SAMPLE
+# The full explaination is given at the 
+# top comment block for the auth-lib.pl file.
+#
+
+$auth_lib = ".";
+$auth_server =                  "off";
+$auth_cgi =                     "on";
+$auth_user_file =               "Users/user.dat";
+$auth_alt_user_file =           "";
+$auth_allow_register =          "on";
+$auth_allow_search =            "on";
+$auth_default_group =           "normal";
+$auth_generate_password =       "off";
+$auth_check_duplicates =        "on";
+$auth_add_register =            "on";  
+$auth_email_register =          "off";
+$auth_admin_from_address =      "wwwadmin\@foobar.com";
+$auth_admin_email_address =     "gunther\@foobar.com";
+$auth_session_length = 2;
+$auth_session_dir = "./Sessions";
+$auth_register_message =
+        "Thanks, you may now logon with your new username
+        and password.";
+$auth_password_message =
+        "Thanks for applying to our site, your password is";
+@auth_extra_fields = ("auth_first_name",
+                      "auth_last_name",
+                      "auth_email");  
+@auth_extra_desc = ("First Name",
+                    "Last Name",
+                    "Email"); 
+$auth_logon_title = "Submit BBS Logon";
+$auth_logon_header = "Enter Logon Information For The BBS"; 
+ 
+
+
+

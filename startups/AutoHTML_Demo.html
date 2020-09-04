@@ -1,0 +1,51 @@
+<HTML>
+  <HEAD>
+    <TITLE>AutoHTML Demonstration</TITLE>
+  </HEAD>
+  <BODY>
+    <H1>AutoHTML Demonstration</H1>
+    <A HREF="/~tkammerd/cgi-bin/AutoHTML/AssignTemplate1.html">Existing web page upon which to base a template</A><BR>
+    <A HREF="/~tkammerd/cgi-bin/AutoHTML/AssignTemplate.html">Template created from existing web page</A><BR>
+    <FORM METHOD="GET" ACTION="/~tkammerd/cgi-bin/AutoHTML/updsec_autoHTML.cgi">
+      <INPUT TYPE="hidden" NAME="sourcebase" VALUE="/usr/home/faculty/tkammerd/public_html/cgi-bin/AutoHTML/">
+      <INPUT TYPE="hidden" NAME="sourcefile" VALUE="AssignTemplate.html">
+      <INPUT TYPE="submit" VALUE="Update Sections"> on main page.<BR>
+    </FORM>
+    <FORM METHOD="GET" ACTION="/~tkammerd/cgi-bin/AutoHTML/update_autoHTML.cgi">
+      <INPUT TYPE="hidden" NAME="sourcebase" VALUE="/usr/home/faculty/tkammerd/public_html/cgi-bin/AutoHTML/">
+      <INPUT TYPE="hidden" NAME="sourcefile" VALUE="AssignTemplate.html">
+      <INPUT TYPE="submit" VALUE="Update Mergefields"> on main page.<BR>
+    </FORM>
+    <A HREF="/~tkammerd/cgi-bin/AutoHTML/restore_demo.cgi">Click here</A> to restore template to original state<BR>
+
+    <P>
+    <FONT SIZE=2><I>
+       Last Modified
+       <SCRIPT LANGUAGE="JavaScript">
+       <!-- Start of Script
+         var mod_date = new Date(document.lastModified);
+         var month = mod_date.getMonth() + 1;
+         var date = mod_date.getDate();
+         var year = mod_date.getYear();
+         var hour = mod_date.getHours();
+         var minutes = mod_date.getMinutes();
+         document.write(" on " + month + "-" + date + "-" + year + " ");
+         if (minutes < 10)
+           document.write(" at " + hour + ":0" + minutes + " ");
+         else
+           document.write(" at " + hour + ":" + minutes + " ");
+       <!-- End of Script -->
+       </SCRIPT>
+       <NOSCRIPT>on (use Netscape 2.0+ for date and time)</NOSCRIPT>
+       by 
+       <!-- ##MERGEFIELD## instructor_email_link -->
+         <A HREF="mailto:tkammerd@cs.nlu.edu">
+       <!-- ##/MERGEFIELD## -->
+         <!-- ##MERGEFIELD## instructor_email_name -->
+           Dr. Kammerdiener
+         <!-- ##/MERGEFIELD## -->
+         </A>
+    </I></FONT>
+  </BODY>
+</HTML>
+

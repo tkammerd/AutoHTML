@@ -1,0 +1,58 @@
+                     AutoHTML System Outline
+
+In ~csci/templates store a basic file structure for a faculty website, not
+including the "personal" directory.  This would include a semester file 
+structure and a class file structure.  Unpersonalized autoHTML files for each
+type of automatically managed HTML page would be included as well.
+
+Provide a script (non-cgi) in ~csci/bin to create basic file structure for 
+website, not including semester directories.  Any existing files in the user's 
+public_html are placed in a subdirectory called "personal" (but should be
+warned, with abort allowed).  This script must be run from the user's own
+account, so that it will have necessary permissions.  This will result in
+(among other things) a personal cgi-bin containing an HTML password protected
+"maintenance" directory, which includes:
+* an .htaccess file to restrict HTML access to this directory to only one user
+  (the instructor)
+* a password file used by the .htaccess file
+* a data file containing the unix account userid of this instructor
+* the scripts for creating various autoHTML pages, so that when they are run by
+  suEXEC they will be able to create and modify non-publicly writable web pages
+  for that instructor.  
+* web pages used to invoke the autoHTML scripts
+It would need to ask the userid of the instructor (web pages would not be per-
+sonalized by this script), along with a password to be used for HTML access to
+the "maintenance" directory.  It would be executable by any faculty member.
+
+Provide a script (non-cgi) in cgi-bin/maintenance to create basic file struc-
+ture for a particular semester.  It would need to obtain the the userid of the
+instructor (from data file) and ask for the semester ID, as well as the course
+numbers of any classes to be initially included in the structure.  If it con-
+flicts with an existing class, it should abort.  It should only be executable
+by the owner.
+
+Provide a script (non-cgi) in cgi-bin/maintenance to create basic file struc-
+ture for a particular class.  It would need to obtain the the userid of the
+instructor (from data file) and ask for the course number of the class.  If it
+conflicts with an existing class, it should abort.  It should only be execut-
+able by the owner.
+
+Provide a script (non-cgi) on ~csci to remove the file structure for a par-
+ticular class.  It would need to obtain the the userid of the instructor (from
+data file) and ask for the course number of the class.  Very dangerous --
+should be warned/protected.  It should only be executable by the owner.
+
+Instructor's cgi-bin/maintenance directory contains scripts to modify a Home
+page, Resume page, Class page, Syllabus page, Schedule page, ReadingList page,
+Lectures page, DemoMaterials page, and Assignment page.  The PastAnnouncements
+page will ideally be updated when announcements are added in the Class page
+script, but it might be good to also have a PastAnnouncements page script.
+They will not create these pages (they should have been created by non-cgi
+scripts earlier).  Each of these scripts would need to be passed the class
+number and semester ID (to identify where the autoHTML file is stored).  The
+userid of the instructor would be obtained from a data file also stored in the
+cgi-bin/maintenance directory.
+
+Instructor's cgi-bin/maintanance directory contains a web page to invoke its
+scripts.  It would feature a FORM with select lists to choose class numbers,
+semester ID's, and type of web page to be modified.

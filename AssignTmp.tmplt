@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<TITLE>Programming Asignment</TITLE>
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<B><FONT SIZE=6><P><!-- ##MERGEFIELD## probttl -->Problem Title<!-- ##/MERGEFIELD## --></P>
+</B></FONT><P> <!-- ##MERGEFIELD## descp -->Description<!-- ##/MERGEFIELD## --></P>
+<P> 
+<UL>
+<!-- ##SECTION## notesec -->
+	<LI><!-- ##MERGEFIELD## note -->Note<!-- ##/MERGEFIELD## --></LI>
+<!-- ##/SECTION## --> </P>
+</UL>
+<P>Test Data: </P>
+<!-- ##SECTION## flinput -->
+	<!-- File Input -->
+		<P> Input file name: <!-- ##MERGEFIELD## filehl --><A href = "URL FILE"><!-- ##/MERGEFIELD## -->
+					<!-- ##MERGEFIELD## fileinname -->File Name<!-- ##/MERGEFIELD## --></A><br>
+		Test data format: <br>
+		<!-- ##MERGEFIELD## fileinfrm -->Description of Input format<!-- ##/MERGEFIELD## --></P>
+<!-- ##/SECTION## --> 
+<!-- ##SECTION## kbinput -->
+	<!-- Keyboard Input -->
+		<P> Keyboard Test data format:  
+		<!-- ##MERGEFIELD## kbinfrm -->Description of Input format<!-- ##/MERGEFIELD## --></P>
+<!-- ##/SECTION## --> 
+
+<!-- ##SECTION## floutput -->
+	<!-- File Output -->
+		<P> Output file name: <!-- ##MERGEFIELD## floutname -->Output File Name<!-- ##/MERGEFIELD## --><br>
+		<!-- ##MERGEFIELD## floutfrm -->Description of Output format<!-- ##/MERGEFIELD## --></P>
+<!-- ##/SECTION## --> 
+		
+<!-- ##SECTION## scroutput -->
+	<!-- Screen Outpt -->
+		<P> Screen Output Format:
+		<!-- ##MERGEFIELD## scroutfrm -->Description of Output format<!-- ##/MERGEFIELD## --></P>
+<!-- ##/SECTION## --> 
+
+					
+<P>Example Runs:</P>
+
+<!-- ##SECTION## examplesec -->
+<pre>
+<!-- ##MERGEFIELD## examplerun -->
+4231 Baseball Glove            12.50
+4321 Aluminum Bat              112.85
+4322 Wooden Bat                17.25
+5456 Batting Glove             8.25
+4879 Pitching Machine          350.72
+
+Resulting Inventory Listing
+
+4321 Aluminum Bat               112.85 0
+4231 Baseball Glove              12.50 1
+4879 Pitching Machine           350.72 1
+4322 Wooden Bat                  17.25 2
+5456 Batting Glove                8.25 2
+<!-- ##/MERGEFIELD## -->
+</pre>
+<!-- ##/SECTION## --> 
+
+<!-- Grading Levels -->
+<!-- ##SECTION## gradelv -->
+<P><!-- ##MERGEFIELD## lettergd -->C<!-- ##/MERGEFIELD## -->-credit(
+<!-- ##MERGEFIELD## scoregd -->70<!-- ##/MERGEFIELD## -->): 
+<!-- ##MERGEFIELD## decrpgd -->Implementation of a binary search tree that contains only the product_code. Allows for insertion, deletion, searching and production list of codes.</P>
+<!-- ##/MERGEFIELD## -->
+<!-- ##/SECTION## --> 
+
+<P> Due Date: <!-- ##MERGEFIELD## duedate -->12/3/98<!-- ##/MERGEFIELD## --></P>
+<!-- ##SECTION## subproblem -->
+	Sub Problem Due Date: <!-- ##MERGEFIELD## subduedate -->11/23/98<!-- ##/MERGEFIELD## -->
+	<!-- ##MERGEFIELD## subduedrcp -->Description of subproblem<!-- ##/MERGEFIELD## --><br>
+<!-- ##/SECTION## -->
+</BODY>
+</HTML>
+
+
+
+

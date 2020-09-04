@@ -1,0 +1,249 @@
+<HTML>
+  <HEAD>
+    <TITLE>Classes -- CMPS 000: Assignment #? Grading Guidelines</TITLE>
+    <SCRIPT LANGUAGE="JavaScript"><!--
+     function replace(string,text,by) {
+     // Replaces text with by in string
+         var strLength = string.length, txtLength = text.length;
+         if ((strLength == 0) || (txtLength == 0)) return string;
+
+         var i = string.indexOf(text);
+         if ((!i) && (text != string.substring(0,txtLength))) return string;
+         if (i == -1) return string;
+
+         var newstr = string.substring(0,i) + by;
+
+         if (i+txtLength < strLength)
+             newstr += replace(string.substring(i+txtLength,strLength),text,by);
+
+         return newstr;
+     }
+     function simpleCheckpoint(cp_num, cp_val, cp_OK, cp_notOK)
+     {
+       document.writeln('        <TR>');
+       document.writeln('          <TD>'+cp_OK+'</TD>');
+       document.writeln('          <TD><INPUT TYPE="radio" NAME="CP'+cp_num+'"');
+       document.writeln('            VALUE="(OK) '+cp_OK+'" CHECKED '+
+         ')">Done</TD>');
+       document.writeln('          <TD NOWRAP>');
+       document.writeln('            <INPUT TYPE="radio" NAME="CP'+cp_num+'"');
+       document.writeln('            VALUE="('+cp_val+') '+cp_notOK+
+         ')">');
+       document.writeln('            Not Done ('+cp_val+')');
+       document.writeln('          </TD>');
+       document.writeln('        </TR>');
+     }
+    //--></SCRIPT>
+  </HEAD>
+  <BODY>
+    <TABLE WIDTH="100%">
+      <TR>
+        <TD ROWSPAN=2 ALIGN="left">
+          <FONT SIZE=6 ALIGN="left"><B>CMPS 000</B></FONT>
+        </TD>
+        <TD ALIGN="right">
+          <FONT SIZE=4 ALIGN="right"><B>Assignment #? Grading Guidelines</B></FONT>
+        </TD>
+      </TR>
+      <TR>
+        <TD ALIGN="right">
+          <FONT SIZE=4><B><I>Assignment_Title</I></B></FONT>
+        </TD>
+      </TR>
+    </TABLE>
+    <!-- FORM ACTION="http://aslan.nix.selu.edu/cgi-bin/post-query" METHOD="POST" -->
+    <FORM ACTION="/cgi-bin/mailto.pl.cgi" METHOD="POST">
+      Email address of student being graded: <INPUT TYPE="TEXT" NAME="to"> 
+      <INPUT TYPE="HIDDEN" NAME="cc" VALUE="cmps000@aslan.nix.selu.edu">
+      <INPUT TYPE="HIDDEN" NAME="subject" VALUE="Grade for CMPS 000 Assignment #?">
+      <INPUT TYPE="HIDDEN" NAME="first_line" VALUE="Your Assignment #? has been graded.  Here are the results:">
+      <INPUT TYPE="HIDDEN" NAME="name" VALUE="CMPS 000 Grader">
+      <INPUT TYPE="HIDDEN" NAME="from" VALUE="cmps000@aslan.nix.selu.edu">
+      <INPUT TYPE="HIDDEN" NAME="required_fields" 
+        VALUE="to, grader, deductions_for_errors, late_penalty, total_deductions, grade">
+      <P>
+      <TABLE BORDER=1>
+        <TR>
+          <TH>Checkpoint</TH><TH COLSPAN=2>Status</TH>
+        </TR>
+        <TR>
+          <TD COLSPAN=3 BGCOLOR="pink">Section Description:</TD>
+          <INPUT TYPE="hidden" NAME="SectionID_Note"
+            VALUE="SectionDescription">
+        </TR> 
+        <TR> 
+          <TD COLSPAN=3 BGCOLOR="lightblue">Instructions</TD>
+        </TR> 
+        <SCRIPT LANGUAGE="JavaScript">
+          cp_num=1;
+          cp_val='-?';
+          cp_OK='CheckpointOKStmt';
+          cp_notOK='CheckpointNotOKStmt';
+	  simpleCheckpoint(cp_num++, -2, cp_OK, cp_notOK);
+          cp_val_ea=-1;
+	  cp_val = cp_val_ea;
+          cp_OK='CheckpointOKStmt';
+          cp_notOK='CheckpointNotOKStmt';
+          document.writeln('        <TR>');
+          document.writeln('          <TD VALIGN="top">'+cp_OK+'</TD>');
+          document.writeln('          <TD COLSPAN=2 NOWRAP>');
+          document.writeln('            <INPUT TYPE="radio" NAME="CP'+cp_num+'"');
+          document.writeln('              VALUE="(OK) '+cp_OK+'" CHECKED>');
+          document.writeln('              (OK) No ' + cp_notOK + '<BR>');
+          document.writeln('            <INPUT TYPE="radio" NAME="CP'+cp_num+'"');
+          document.writeln('              VALUE="('+cp_val+') '+'One ' + cp_notOK+'">');
+          document.writeln('              ('+(cp_val)+') One ' + cp_notOK + '<BR>');
+          cp_val += cp_val_ea;
+          document.writeln('            <INPUT TYPE="radio" NAME="CP'+cp_num+'"');
+          document.writeln('              VALUE="('+cp_val+') '+'Two ' + cp_notOK+'">');
+          document.writeln('              ('+(cp_val)+') Two ' + cp_notOK + '<BR>');
+          cp_val += cp_val_ea;
+          document.writeln('            <INPUT TYPE="radio" NAME="CP'+cp_num+'"');
+          document.writeln('              VALUE="('+cp_val+') '+'More than X ' + cp_notOK+'">');
+          document.writeln('              ('+(cp_val)+') More than X ' + cp_notOK + '<BR>');
+          cp_val += cp_val_ea;
+          document.writeln('          </TD>');
+          document.writeln('        </TR>');
+        </SCRIPT> 
+        <SCRIPT LANGUAGE="JavaScript">
+          var totprobs = 0;
+          var prob_num = new Array();
+          var prob_text = new Array();
+          var prob_correct_answer = new Array();
+          var major_err_cost = new Array();
+          var minor_err_cost = new Array();
+          var maxMinorErrs = new Array();
+          var prob_major_errors = new Array();
+          var prob_minor_errors = new Array();
+          var prob_comments = new Array();
+
+          evalType="Execution Check";
+          evalAns="Execution Result";
+          evalVar="exec_chk";
+          prob_num[totprobs] = "1";
+          prob_text[totprobs] = 
+            "\n" +
+            "";
+          prob_correct_answer[totprobs] =
+            "<TT><BR>\n" +
+            "<BR>\n" +
+            "</TT>";
+          major_err_cost[totprobs] = 0;  // 0 for both costs causes textfield entry of deductions
+          minor_err_cost[totprobs] = 0;
+          maxMinorErrs[totprobs] = 10;   // Also controls size of minor error comment field
+          prob_major_errors[totprobs] =
+            "\n" +
+            "";
+          prob_minor_errors[totprobs] =
+            "\n" +
+            "";
+          prob_comments[totprobs++] =
+            "";
+
+          for (probnum = 0; probnum < totprobs; probnum++)
+          {
+            document.writeln('<TR><TD COLSPAN=3 BGCOLOR="lightgreen">' + evalType + ' #' + prob_num[probnum] + ': ' +
+              prob_text[probnum] + '</TD></TR>');
+            document.writeln('  <INPUT TYPE="hidden" NAME="' + evalVar + (probnum + 1) + 
+              '_text" VALUE="' + prob_text[probnum] + '">');
+            document.writeln('<TR><TD COLSPAN=3>' + evalAns + ' #' + prob_num[probnum] + ': ' +
+              replace(prob_correct_answer[probnum],'\n','<BR>') + '</TD></TR>');
+            document.writeln('  <INPUT TYPE="hidden" NAME="' + evalVar + (probnum + 1) + 
+              '_result" VALUE="' + prob_correct_answer[probnum] + '">');
+            document.writeln('<TR>');
+            var temp_mje = evalVar + (probnum + 1) + '_major_errors'; 
+            var temp_mne = evalVar + (probnum + 1) + '_minor_errors'; 
+            var temp_com = evalVar + (probnum + 1) + '_comments'; 
+            document.writeln('  <TD>Major Errors:<BR>' +
+              '<TEXTAREA NAME="' + temp_mje + '" ROWS=4 COLS=70>' + 
+              prob_major_errors[probnum] + '</TEXTAREA><BR>');
+            document.writeln('    Minor Errors:<BR>' +
+              '<TEXTAREA NAME="' + temp_mne + '" ROWS=' + (maxMinorErrs[probnum] + 1) + ' COLS=70>' + 
+              prob_minor_errors[probnum] + '</TEXTAREA><BR>');
+            document.writeln('    Problem Comments:<BR>' +
+              '<TEXTAREA NAME="' + temp_com + '" ROWS=2 COLS=70>' + 
+              prob_comments[probnum] + '</TEXTAREA></TD>');
+            document.writeln('  <TD NOWRAP COLSPAN=2>');
+            if ((major_err_cost[probnum] + minor_err_cost[probnum]) == 0)
+            {
+              document.writeln('    <INPUT TYPE="button" VALUE="Correct" ONCLICK="' + temp_mje + '.value = ' + 
+                temp_mne + '.value = \'\'"><BR>');
+              document.writeln('    <INPUT TYPE="text" NAME="' + evalVar + (probnum + 1) + '_deduction"');
+              document.writeln('      SIZE=3 MAXLENGTH=3 VALUE="-0">Deduction');
+            }
+            else
+            {
+              document.writeln('    <INPUT TYPE="radio" NAME="' + evalVar + (probnum + 1) + '_deduction"');
+              document.writeln('      VALUE="-0" ONCLICK="' + temp_mje + '.value = ' + 
+                temp_mne + '.value = \'\'">Correct<BR>');
+              document.writeln('    <INPUT TYPE="radio" NAME="' + evalVar + (probnum + 1) + '_deduction"');
+              document.writeln('      VALUE="-' + major_err_cost[probnum] + '">Major Error (-' + 
+                major_err_cost[probnum] + ')<BR>');
+              if (maxMinorErrs[probnum] >= 1)
+              {
+                document.writeln('    <INPUT TYPE="radio" NAME="' + evalVar + (probnum + 1) + '_deduction"');
+                document.writeln('      VALUE="-' + minor_err_cost[probnum] + '" ONCLICK="' + temp_mje + 
+                  '.value = \'\'">1 Minor Error -(' + minor_err_cost[probnum] + ')<BR>');
+              }
+              for (errnum = 2; errnum < maxMinorErrs[probnum]; errnum++)
+              {
+                document.writeln('    <INPUT TYPE="radio" NAME="' + evalVar + (probnum + 1) + '_deduction"');
+                document.writeln('      VALUE="-' + (minor_err_cost[probnum] * errnum) + '" ONCLICK="' + temp_mje + 
+                  '.value = \'\'">' + errnum + ' Minor Errors (-' + (minor_err_cost[probnum] * errnum) + ')<BR>');
+              }
+              if (maxMinorErrs[probnum] >= 2)
+              {
+                document.writeln('    <INPUT TYPE="radio" NAME="' + evalVar + (probnum + 1) + '_deduction"');
+                document.writeln('      VALUE="-' + (minor_err_cost[probnum] * errnum) + '" ONCLICK="' + temp_mje + 
+                  '.value = \'\'">' + errnum + '+ Minor Errors (-' + (minor_err_cost[probnum] * errnum) + ')<BR>');
+              }
+            }
+            document.writeln('  </TD>');
+            document.writeln('</TR>');
+          }
+        </SCRIPT>
+        <NOSCRIPT>on (use Netscape 2.0+ for date and time)</NOSCRIPT>
+      </TABLE>
+      If you would like to make any additional comments to this student, enter them here:<BR>
+      <TEXTAREA NAME="comments" ROWS=10 COLS=75>
+      </TEXTAREA><BR>
+      <P>
+      Subtract from 100 to get the final grade.
+      <P>
+      Question deductions: <INPUT TYPE="text" NAME="deductions_for_errors" 
+      SIZE=3 MAXLENGTH=3> points.<BR>
+      Late penalty (-10 per 24hrs after Due:Time on DueDate, max -50): 
+      <INPUT TYPE="text" NAME="late_penalty" SIZE=2 MAXLENGTH=2> points.<BR>
+      Which makes a total of 
+      <INPUT TYPE="text" NAME="total_deductions" SIZE=3 MAXLENGTH=3> points off,
+      yielding a grade of <INPUT TYPE="text" NAME="grade" SIZE=3 MAXLENGTH=3> for
+      Assignment #?.
+      <P>
+      This was graded by <INPUT TYPE="text" NAME="grader" VALUE="Troy Kammerdiener"><BR>
+      <INPUT TYPE="submit" VALUE="All done -- Send it off!">
+      <INPUT TYPE="reset" VALUE="Start over">
+    </FORM>
+
+    <P>
+    <FONT SIZE=2><I>
+       Last Modified
+       <SCRIPT LANGUAGE="JavaScript">
+       <!-- Start of Script
+         var mod_date = new Date(document.lastModified);
+         var month = mod_date.getMonth() + 1;
+         var date = mod_date.getDate();
+         var year = mod_date.getYear();
+         var hour = mod_date.getHours();
+         var minutes = mod_date.getMinutes();
+         document.write(" on " + month + "-" + date + "-" + year + " ");        
+         if (minutes < 10)
+           document.write(" at " + hour + ":0" + minutes + " ");
+         else
+           document.write(" at " + hour + ":" + minutes + " ");
+       <!-- End of Script -->
+       </SCRIPT>
+       <NOSCRIPT>on (use Netscape 2.0+ for date and time)</NOSCRIPT>
+       by <A HREF="mailto:tkammerdiener@selu.edu"> 
+       Dr. Kammerdiener</A>
+    </I></FONT>
+</HTML>

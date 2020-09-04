@@ -1,0 +1,11 @@
+Mergefields and Sections cannot be placed within HTML tokens, such as
+inside tags.
+
+Mergefields and Sections currently don't work well between <TITLE> and
+</TITLE>.  They work, but the title still shows the comments.
+
+When pages are generated and later accessed, they often are retrieved from
+cache, so that the old version is displayed, even though the page has
+changed.  Maybe there is a way to invalidate the cache upon regeneration
+(without forcing reload every time the page is used!)
+

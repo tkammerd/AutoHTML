@@ -1,0 +1,44 @@
+<HTML>
+  <HEAD>
+    <TITLE>General Biology -- Assignment #1</TITLE>
+  </HEAD>
+  <BODY>
+    <H1><CENTER><!-- ##MERGEFIELD## title -->
+      Replace With Title of Assignment
+    <!-- ##/MERGEFIELD## --></CENTER></H1>
+    <H3><I>Description of Problem:</I></H3>
+    <!-- ##MERGEFIELD## problem_description -->
+      Replace with a text description of the problem.
+    <!-- ##/MERGEFIELD## -->
+    <!-- ##SECTION## required_component_header -->
+      <H3><I>Required Components:</I></H3>
+      <!-- ##MERGEFIELD## required_component_intro -->
+      You must include the following required components:
+      <!-- ##/MERGEFIELD## -->
+    <!-- ##/SECTION## -->
+    <UL>
+      <!-- ##SECTION## required_component_item -->
+        <LI><!-- ##MERGEFIELD## component_text -->Replace this with
+        the text of a required component<!-- ##/MERGEFIELD## -->
+      <!-- ##/SECTION## -->
+    </UL>
+    <H3><I>What to turn in:</I></H3>
+    You must turn in the following items:
+    <UL>
+      <!-- ##SECTION## turn_in_element -->
+        <LI><!-- ##MERGEFIELD## turn_in_text -->Replace this with
+        text describing something that must be turned in
+        <!-- ##/MERGEFIELD## -->
+      <!-- ##/SECTION## -->
+    </UL>
+    <H3><I>Due Dates:</I></H3>
+    <!-- ##SECTION## all_due_dates -->
+      <B><!-- ##MERGEFIELD## due_date_description -->
+        What is due
+      <!-- ##/MERGEFIELD## --></B> - 
+      <!-- ##MERGEFIELD## due_date -->
+        00/00/00
+      <!-- ##/MERGEFIELD## --><BR>
+    <!-- ##/SECTION## -->
+  </BODY>
+</HTML>
